@@ -1,0 +1,39 @@
+version: '3.2'
+
+services:
+
+  oni:
+    build:
+      context: .
+      dockerfile: Dockerfile.oni
+    network_mode: host
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - "$HOME:/home/user"
+    environment:
+      - "DISPLAY=unix$DISPLAY"
+
+  cadquery:
+    image: dcowden/cadquery:latest
+    volumes:
+      - "$PWD:/home/cq"
+
+  lsp-php:
+    image: felixfbecker/php-language-server:latest
+    volumes:
+      - "$HOME:$HOME"
+    command: --stdin
+
+  lsp-bash:
+    build:
+      context: .
+      dockerfile: Dockerfile.lsp-bash
+    volumes:
+      - "$HOME:$HOME"
+
+  lsp-dockerfile:
+    build:
+      context: .
+      dockerfile: Dockerfile.lsp-dockerfile
+    volumes:
+      - "$HOME:$HOME"
