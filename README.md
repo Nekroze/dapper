@@ -14,7 +14,7 @@ Dapper can start any of the supported applications that are listed in the usage 
 You can then start any one of these apps and pass any switches you would like to that app like so:
 
 ```bash
- $ ./dapper oni --help
+ $ ./dapper cadquery --help
 ```
 
 # Upgrading
