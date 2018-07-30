@@ -1,0 +1,3 @@
+FROM google/dart:latest
+RUN pub global activate dart_language_server
+ENTRYPOINT ["/root/.pub-cache/bin/dart_language_server"]

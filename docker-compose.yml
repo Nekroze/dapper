@@ -26,3 +26,10 @@ services:
       dockerfile: Dockerfile.lsp-dockerfile
     volumes:
       - "$HOME:$HOME"
+
+  lsp-dart:
+    build:
+      context: .
+      dockerfile: Dockerfile.lsp-dart
+    volumes:
+      - "$HOME:$HOME"
