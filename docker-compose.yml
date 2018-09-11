@@ -33,3 +33,13 @@ services:
       dockerfile: Dockerfile.lsp-dart
     volumes:
       - "$HOME:$HOME"
+
+  kafkacat:
+    image: confluentinc/cp-kafkacat:latest
+    network_mode: host
+    working_dir: /tmp/pwd
+    volumes:
+      - .:/tmp/pwd
+    entrypoint:
+      - /usr/local/bin/kafkacat
+    command: "-b ${KAFKACAT_TARGET:-kafka} -L"
