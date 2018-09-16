@@ -43,3 +43,8 @@ services:
     entrypoint:
       - /usr/local/bin/kafkacat
     command: "-b ${KAFKACAT_TARGET:-kafka} -L"
+
+  dockly:
+    image: lirantal/dockly
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
